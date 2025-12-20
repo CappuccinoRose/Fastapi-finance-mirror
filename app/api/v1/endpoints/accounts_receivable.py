@@ -40,12 +40,11 @@ async def read_sales_invoice(
         guid: str,
         current_user: User = Depends(deps.get_current_active_user)
 ):
-
-    invoice = await crud_invoice.get(db, id=guid, options=[joinedload(crud_invoice.model.customer), joinedload(crud_invoice.model.entries)])
-
+    invoice = await crud_invoice.get(db, id=guid)  # 移除 options 参数
     if not invoice:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="发票未找到")
     return invoice
+
 
 
 @router.put("/sales-invoices/{guid}", response_model=schemas.Invoice, summary="更新销售发票")
