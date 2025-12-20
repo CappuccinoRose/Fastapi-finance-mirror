@@ -37,6 +37,15 @@ app.add_middleware(
 # --- 包含 API 路由 ---
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
+# --- 根路径处理器 ---
+@app.get("/")
+async def root():
+    """根路径，返回欢迎信息和API文档链接"""
+    return {
+        "message": "Welcome to the Finance Mirror API!",
+        "docs": "/docs",  # 指向FastAPI自动生成的API文档
+        "health": "/health" # 指向健康检查端点
+    }
 
 # --- 健康检查端点 ---
 @app.get("/health")
