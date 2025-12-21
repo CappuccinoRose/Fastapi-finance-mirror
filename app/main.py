@@ -44,8 +44,9 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:9925" ,  # 你的 Vite 开发服务器端口
-        "https://financemirror.icu" ,
+        "http://localhost:9925" ,
+        "https://financemirror.icu",
+        "https://www.financemirror.icu",
     ],
     allow_credentials=True,                   # 允许携带 cookie
     allow_methods=["*"],                      # 允许所有 HTTP 方法
