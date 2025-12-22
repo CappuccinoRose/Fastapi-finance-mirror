@@ -12,7 +12,7 @@ from app.db.session import AsyncSessionLocal
 from app.schemas.user import UserWithAuth, TokenData
 from app.core.exceptions import CredentialsException, InactiveUserException, PermissionDeniedException
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{settings.API_V1_STR}/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 
 async def get_db() -> Generator:
