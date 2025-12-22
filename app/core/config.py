@@ -26,7 +26,7 @@ class Settings(BaseSettings):
 
     # 控制是否使用API前缀
     USE_API_PREFIX: bool = False
-    
+
     # CORS 配置（可以是字符串，用逗号分隔，或者是列表）
     CORS_ORIGINS: Union[str, list[str]] = DEFAULT_CORS_ORIGINS
 
